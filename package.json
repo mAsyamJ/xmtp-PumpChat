@@ -24,7 +24,8 @@
   },
   "dependencies": {
     "@changesets/changelog-git": "^0.2.1",
-    "@changesets/cli": "^2.29.3"
+    "@changesets/cli": "^2.29.3",
+    "lucide-react": "^0.511.0"
   },
   "devDependencies": {
     "@eslint/compat": "^1.2.9",
