@@ -72,23 +72,23 @@ export const IdentityModal: React.FC = () => {
             </Group>
           }>
           <Stack gap="md" p="md">
-            <Paper p="md" radius="md" withBorder>
+            <Paper p="md" radius="md" withBorder bg="#1e2433">
               <Stack gap="md">
                 <Group gap="md" wrap="nowrap">
-                  <Text flex="0 0 25%" style={{ whiteSpace: "nowrap" }}>
+                  <Text flex="0 0 25%" style={{ whiteSpace: "nowrap" }} c="white">
                     Address
                   </Text>
                   <BadgeWithCopy value={accountIdentifier || ""} />
                 </Group>
                 <Group gap="md" wrap="nowrap">
-                  <Text flex="0 0 25%" style={{ whiteSpace: "nowrap" }}>
+                  <Text flex="0 0 25%" style={{ whiteSpace: "nowrap" }} c="white">
                     Inbox ID
                   </Text>
                   {/* eslint-disable-next-line @typescript-eslint/no-non-null-assertion */}
                   <BadgeWithCopy value={client.inboxId!} />
                 </Group>
                 <Group gap="md" wrap="nowrap">
-                  <Text flex="0 0 25%" style={{ whiteSpace: "nowrap" }}>
+                  <Text flex="0 0 25%" style={{ whiteSpace: "nowrap" }} c="white">
                     Installation ID
                   </Text>
                   {/* eslint-disable-next-line @typescript-eslint/no-non-null-assertion */}
@@ -96,13 +96,13 @@ export const IdentityModal: React.FC = () => {
                 </Group>
               </Stack>
             </Paper>
-            <Title order={4} ml="md">
+            <Title order={4} ml="md" c="white">
               Installations
             </Title>
-            <Paper p="md" radius="md" withBorder>
+            <Paper p="md" radius="md" withBorder bg="#1e2433">
               <Stack gap="md">
                 {installations.length === 0 && (
-                  <Text>No other installations found</Text>
+                  <Text c="white">No other installations found</Text>
                 )}
                 {installations.length > 0 && (
                   <>

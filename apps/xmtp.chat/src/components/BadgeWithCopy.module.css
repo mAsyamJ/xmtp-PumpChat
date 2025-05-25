@@ -1,11 +1,24 @@
 .badge {
-  background-color: light-dark(
-    var(--mantine-color-gray-1),
-    var(--mantine-color-dark-5)
-  );
-  color: light-dark(var(--mantine-color-light-4), var(--mantine-color-dark-1));
+  background: #181f2a;
+  color: #fff;
+  box-shadow: 0 2px 8px 0 #00bcd4 inset;
 }
 
 .button {
-  color: light-dark(var(--mantine-color-light-4), var(--mantine-color-dark-1));
+  color: #fff;
+  background: #11161c;
+  border-radius: 1.5rem;
+  box-shadow: 0 2px 8px 0 #00bcd4 inset;
+  transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+  position: relative;
+  overflow: hidden;
+}
+.button:hover {
+  color: #6fffe9;
+  background: #181f2a;
+  box-shadow: 0 0 16px 2px #00bcd4, 0 0 24px 0 #1de9b6 inset;
+  transform: scale(1.05);
+}
+.button:active {
+  transform: scale(0.97);
 }

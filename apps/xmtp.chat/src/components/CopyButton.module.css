@@ -1,3 +1,18 @@
 .button {
-  color: light-dark(var(--mantine-color-light-4), var(--mantine-color-dark-1));
+  color: #818080;
+  background: #11161c;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 8px 0 #2a909d inset;
+  transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+  position: relative;
+  overflow: hidden;
+}
+.button:hover {
+  color: #6fffe9;
+  background: #181f2a;
+  box-shadow: 0 0 6px 2px #0a5e69, 0 0 6px 0 #1fc49a inset;
+  transform: scale(1.05);
+}
+.button:active {
+  transform: scale(0.97);
 }

@@ -14,6 +14,9 @@
 .root {
   position: relative;
   flex-grow: 1;
+  background: #1e2433;
+  border-radius: 1rem;
+  box-shadow: 0 4px 24px 0 rgba(33, 243, 220, 0.08);
 }
 
 .header {
@@ -22,6 +25,7 @@
   padding: var(--header-padding);
   border-bottom: var(--header-border-width) solid var(--header-border-color);
   height: var(--header-height);
+  background: #1e2433;
 }
 
 .headerActions {
@@ -35,6 +39,7 @@
   flex-grow: 1;
   display: flex;
   flex-direction: column;
+  background: #1e2433;
   --gradient-color: light-dark(
     var(--content-gradient-color-light),
     var(--content-gradient-color-dark)
@@ -48,7 +53,7 @@
   left: 0;
   right: 0;
   height: 20px;
-  background: linear-gradient(to top, transparent, var(--gradient-color) 20px);
+  background: linear-gradient(to top, transparent, rgba(143, 173, 255, 0.2) 20px);
   pointer-events: none;
   z-index: 1;
   border-radius: var(--mantine-radius-md) var(--mantine-radius-md) 0 0;
@@ -61,11 +66,7 @@
   left: 0;
   right: 0;
   height: 20px;
-  background: linear-gradient(
-    to bottom,
-    transparent,
-    var(--gradient-color) 20px
-  );
+  background: linear-gradient(to bottom, transparent, rgba(33, 153, 228, 0.2) 20px);
   pointer-events: none;
   z-index: 1;
   border-radius: 0 0 var(--mantine-radius-md) var(--mantine-radius-md);

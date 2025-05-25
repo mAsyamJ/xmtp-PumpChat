@@ -1,4 +1,4 @@
-import { Box, Button, Group, TextInput } from "@mantine/core";
+import { Box, Button, Group, TextInput, Text } from "@mantine/core";
 import { Utils, type Conversation } from "@xmtp/browser-sdk";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate } from "react-router";
@@ -87,19 +87,40 @@ export const CreateDmModal: React.FC = () => {
   const footer = useMemo(() => {
     return (
       <Group justify="flex-end" flex={1} p="md">
-        <Button variant="default" onClick={handleClose}>
+        <Button
+          variant="subtle"
+          onClick={handleClose}
+          styles={{
+            root: {
+              color: 'var(--mantine-color-gray-6)',
+              '&:hover': {
+                backgroundColor: 'var(--mantine-color-gray-1)',
+              },
+            },
+          }}>
           Cancel
         </Button>
         <Button
           variant="filled"
           disabled={loading || memberIdError !== null}
           loading={loading}
-          onClick={() => void handleCreate()}>
+          onClick={() => void handleCreate()}
+          styles={{
+            root: {
+              background: 'linear-gradient(45deg, #2e8eff 0%, #00bcd4 100%)',
+              '&:hover': {
+                background: 'linear-gradient(45deg, #1e7ee6 0%, #00a3b3 100%)',
+              },
+              '&:disabled': {
+                background: 'var(--mantine-color-gray-4)',
+              },
+            },
+          }}>
           Create
         </Button>
       </Group>
     );
-  }, [handleClose, handleCreate, loading]);
+  }, [handleClose, handleCreate, loading, memberIdError]);
 
   return (
     <Modal
@@ -119,11 +140,31 @@ export const CreateDmModal: React.FC = () => {
         withScrollAreaPadding={false}>
         <Box p="md">
           <TextInput
-            size="sm"
+            size="md"
             label="Address or inbox ID"
+            placeholder="Enter an Ethereum address or inbox ID"
+            aria-label="Address or inbox ID input"
+            description="Enter a valid Ethereum address (0x...) or XMTP inbox ID"
             styles={{
               label: {
                 marginBottom: "var(--mantine-spacing-xxs)",
+                fontSize: "var(--mantine-font-size-sm)",
+                fontWeight: 500,
+              },
+              description: {
+                marginTop: "var(--mantine-spacing-xxs)",
+                fontSize: "var(--mantine-font-size-xs)",
+                color: "var(--mantine-color-gray-6)",
+              },
+              input: {
+                '&:focus': {
+                  borderColor: 'var(--mantine-color-blue-5)',
+                  boxShadow: '0 0 0 2px rgba(46, 142, 255, 0.2)',
+                },
+                '&:focus-within': {
+                  borderColor: 'var(--mantine-color-blue-5)',
+                  boxShadow: '0 0 0 2px rgba(46, 142, 255, 0.2)',
+                },
               },
             }}
             error={memberIdError}
@@ -132,6 +173,11 @@ export const CreateDmModal: React.FC = () => {
               setMemberId(event.target.value);
             }}
           />
+          {memberIdError && (
+            <Text size="xs" c="red" mt="xs">
+              {memberIdError}
+            </Text>
+          )}
         </Box>
       </ContentLayout>
     </Modal>
