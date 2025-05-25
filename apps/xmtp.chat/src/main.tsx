@@ -106,15 +106,16 @@ createRoot(document.getElementById("root") as HTMLElement).render(
           fontFamily: "Inter, sans-serif",
           defaultRadius: "md",
         }}
-      >
-        <XMTPProvider>
-          <BrowserRouter>
-            <App />
-          </BrowserRouter>
-        </XMTPProvider>
-      </MantineProvider>
+        children={
+          <XMTPProvider>
+            <BrowserRouter>
+              <App />
+            </BrowserRouter>
+          </XMTPProvider>
+        }
+      />
     </QueryClientProvider>
-  </WagmiProvider>
+  </WagmiProvider>,
 );
 
 console.log("[xmtp.chat] XMTP Browser SDK version:", pkg.version);
